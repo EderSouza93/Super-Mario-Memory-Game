@@ -53,6 +53,9 @@ const cardsArray = [
 // Duplicando array para criar uma correspondência para cada card
 let gameGrid = cardsArray.concat(cardsArray);
 
+// Randomizando a exibição de cartões
+gameGrid.sort(() => 0.5 - Math.random())
+
 // Pegue o div com um id de root
 const game = document.querySelector('#game');
 
