@@ -50,18 +50,21 @@ const cardsArray = [
     },
 ]
 
+// Duplicando array para criar uma correspondência para cada card
+let gameGrid = cardsArray.concat(cardsArray);
+
 // Pegue o div com um id de root
-const game = document.querySelector('#game')
+const game = document.querySelector('#game');
 
 // Cria uma seção com uma section grid
-const grid = document.createElement('section') 
+const grid = document.createElement('section'); 
 grid.setAttribute('class', 'grid')
 
 // Anexa a section grid ao div game
 game.appendChild(grid)
 
 // For each item no array cardsArray...
-cardsArray.forEach((item) => {
+gameGrid.forEach((item) => {
     // criando uma div
     const card = document.createElement('div')
 
@@ -77,3 +80,11 @@ cardsArray.forEach((item) => {
     // Anexando o div ao grid section
      grid.appendChild(card)
 })
+
+
+
+
+
+
+
+
