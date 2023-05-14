@@ -49,3 +49,13 @@ const cardsArray = [
         img: 'img/goomba.png',
     },
 ]
+
+// Pegue o div com um id de root
+const game = document.querySelector('#game')
+
+// Cria uma seção com uma section grid
+const grid = document.createElement('section') 
+grid.setAttribute('class', 'grid')
+
+// Anexa a section grid ao div game
+game.appendChild(grid)
