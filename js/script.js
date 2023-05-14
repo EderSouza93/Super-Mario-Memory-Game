@@ -50,6 +50,8 @@ const cardsArray = [
     },
 ]
 
+let count = 0;
+
 // Duplicando array para criar uma correspondência para cada card
 let gameGrid = cardsArray.concat(cardsArray);
 
@@ -89,11 +91,12 @@ grid.addEventListener('click', function (event){
     // O evento marcará o item clicado
     let clicked = event.target
     // Não permite que a própria section da grid seja selecionada; seleciona apenas as divs dentro da grid
-    if (clicked.nodeName === 'SECTION'){
-        return
-    }
-    // Adiciona a class selecionada
+    if (clicked.nodeName === 'SECTION'){ return; }
+    if (count < 2) {
+        count++
+           // Adiciona a class selecionada
     clicked.classList.add('selected')
+    }  
 })
 
 
