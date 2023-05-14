@@ -59,3 +59,21 @@ grid.setAttribute('class', 'grid')
 
 // Anexa a section grid ao div game
 game.appendChild(grid)
+
+// For each item no array cardsArray...
+cardsArray.forEach((item) => {
+    // criando uma div
+    const card = document.createElement('div')
+
+    // Aplicando uma card class a essa div
+    card.classList.add('card')
+
+    // Definindo o atributo data-name do div para o nome cardsArray
+    card.dataset.name = item.name
+
+    // Aplicando a imagem de fundo do div à imagem cardsArray
+    card.style.backgroundImage = `url(${item.img})`
+
+    // Anexando o div ao grid section
+     grid.appendChild(card)
+})
