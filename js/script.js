@@ -84,6 +84,18 @@ gameGrid.forEach((item) => {
      grid.appendChild(card)
 })
 
+// Adicionando o evento listener à grid 
+grid.addEventListener('click', function (event){
+    // O evento marcará o item clicado
+    let clicked = event.target
+    // Não permite que a própria section da grid seja selecionada; seleciona apenas as divs dentro da grid
+    if (clicked.nodeName === 'SECTION'){
+        return
+    }
+    // Adiciona a class selecionada
+    clicked.classList.add('selected')
+})
+
 
 
 
