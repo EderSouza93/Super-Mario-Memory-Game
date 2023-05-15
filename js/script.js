@@ -90,6 +90,16 @@ const match = () => {
     });
 }
 
+const resetGuesses = () => {
+    firstGuess = '';
+    secondGuess = '';
+    count = 0;
+
+    var selected = document.querySelectorAll('.selected');
+    selected.forEach((card) => {
+        card.classList.remove('selected');
+    });
+}
 // Adicionando o evento listener à grid 
 grid.addEventListener('click', function (event){
     // O evento marcará o item clicado
@@ -118,12 +128,15 @@ grid.addEventListener('click', function (event){
             if (firstGuess === secondGuess){
                 // rode a função match
                 match();
-            }
-        }
+                resetGuesses();
+            } else {
+                resetGuesses();
+            };
+        };
         // define o previous target como clicked
         previousTarget = clicked;
            
-    }  
+    };  
 });
 
 
