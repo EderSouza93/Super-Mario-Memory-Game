@@ -59,6 +59,7 @@ let firstGuess = '';
 let secondGuess = '';
 let count = 0;
 let previousTarget = null;
+let delay = 1200;
 
 // Pegue o div com um id de root
 const game = document.querySelector('#game');
@@ -127,10 +128,10 @@ grid.addEventListener('click', function (event){
             // e o primeiro palpite corresponder ao segundo...
             if (firstGuess === secondGuess){
                 // rode a função match
-                match();
-                resetGuesses();
+                setTimeout(match, delay);
+                setTimeout(resetGuesses, delay);
             } else {
-                resetGuesses();
+                setTimeout(resetGuesses, delay);
             };
         };
         // define o previous target como clicked
