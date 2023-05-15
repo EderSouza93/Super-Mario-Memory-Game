@@ -71,16 +71,21 @@ game.appendChild(grid);
 
 // For each item no array cardsArray...
 gameGrid.forEach((item) => {
-    // criando uma div
+    // criando elemento cartão com o name de dataset
     const card = document.createElement('div');
-    // Aplicando uma card class a essa div
     card.classList.add('card');
-    // Definindo o atributo data-name do div para o nome cardsArray
     card.dataset.name = item.name;
-    // Aplicando a imagem de fundo do div à imagem cardsArray
-    card.style.backgroundImage = `url(${item.img})`;
+    // criando a frente do cartão
+    const front = document.createElement('div');
+    front.classList.add('front');
+    // Criando o verso do cartão, que contem 
+    const back = document.createElement('div');
+    back.classList.add('back'); 
+    back.style.backgroundImage = `url(${item.img})`;
     // Anexando o div ao grid section
      grid.appendChild(card);
+     card.appendChild(front);
+     card.appendChild(back);
 });
 
 // Adicionando match CSS
@@ -114,14 +119,14 @@ grid.addEventListener('click', function (event){
         count++;
         if (count === 1) {
             // Atribui o primeiro palpite
-            firstGuess = clicked.dataset.name;
+            firstGuess = clicked.parentNode.dataset.name;
             console.log(firstGuess);
-            clicked.classList.add('selected');
+            clicked.parentNode.classList.add('selected');
         } else {
             // Atribui o segundo palpite 
-            secondGuess = clicked.dataset.name;
+            secondGuess = clicked.parentNode.dataset.name;
             console.log(secondGuess);
-            clicked.classList.add('selected');
+            clicked.parentNode.classList.add('selected');
         }
         // Se ambos palpites não estiverem vazios...
         if (firstGuess !== '' && secondGuess !== '') {
