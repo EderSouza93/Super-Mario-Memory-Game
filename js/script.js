@@ -110,10 +110,15 @@ const resetGuesses = () => {
 grid.addEventListener('click', function (event){
     // O evento marcará o item clicado
     let clicked = event.target;
+    
     // Não permite que a própria section da grid seja selecionada; seleciona apenas as divs dentro da grid
-    if (clicked.nodeName === 'SECTION'|| clicked === previousTarget) { 
+    if (
+        clicked.nodeName === 'SECTION'|| 
+        clicked === previousTarget ||
+        clicked.parentNode.classList.contains('selected')
+    ) { 
         return; 
-    }
+    };
     // Não permite selecionar mais de dois itens 
     if (count < 2) {
         count++;
